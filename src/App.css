@@ -1,0 +1,107 @@
+.App {
+  width: 800px;
+  margin: auto;
+  /* background: lightblue; */
+  height: 100vh;
+  padding: 100px 80px 20px 80px;
+  color: #333;
+}
+.result {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  min-height: 370px;
+}
+.result-header {
+  padding: 10px 20px 20px 20px;
+}
+.day-data {
+  display: flex;
+}
+.half-box {
+  width: 50%;
+}
+.week-data {
+  display: flex;
+}
+.week-data-day{
+  width: 14.2857%;
+  min-height: 150px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.city-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+.time {
+  line-height: 16px;
+  font-size: 14px;
+  font-weight: lighter;
+  color: #666;
+}
+.temperature {
+  font-size: 44px;
+  font-weight: bold;
+  padding-top: 40px;
+}
+.temp-icon {
+  margin: -20px 5px 0 0;
+}
+.FC {
+  display: inline-block;
+  height: 44px;
+}
+.day-data-detail {
+  color: #222;
+  font-size: 14px;
+  line-height: 16px;
+  padding-top: 5px;
+}
+.day {
+  font-weight: bold;
+  padding: 10px 0 10px 0;
+}
+.highest {
+  color: #000;
+  font-size: 18px;
+  line-height: 21px;
+  padding: 15px 0 0 0;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.lowest {
+  color: #000;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 0 0 5px 0;
+}
+.temp-type {
+  cursor: pointer;
+}
+.temp-type-active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.weather-icon-daily {
+  width: 80px;
+  margin-bottom: 0;
+}
+.App-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  min-height: 500px;
+}
+.flex-center-box {
+  min-height: 370px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.not-found-con {
+  text-align: center;
+  margin-top: -40px;
+}
