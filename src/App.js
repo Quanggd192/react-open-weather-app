@@ -6,12 +6,13 @@ import "./index.css";
 import { Input } from "antd";
 import { getCoordinates, getWeatherData, getAirPollution } from "./service";
 import Loader from "react-loader-spinner";
-import Result from "./components/Result";
-import NotFound from "./components/NotFound";
+import Result from "./containers/result/Result";
+import NotFound from "./containers/notfound/NotFound";
 
 function App() {
   const [locData, setLocData] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
+  const [current, setCurrent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [airPollution, setAirPollution] = useState(null);
   useEffect(() => {
@@ -21,6 +22,7 @@ function App() {
         setLocData(coorData);
         let weatherData = await getWeatherData(coorData.lat, coorData.lon);
         setWeatherData(weatherData);
+        setCurrent(weatherData.current);
         let airPollution = await getAirPollution(coorData.lat, coorData.lon);
         setAirPollution(airPollution?.list[0]?.main?.aqi);
         setLoading(false)
@@ -39,6 +41,7 @@ function App() {
       setLocData(coorData);
       let weatherData = await getWeatherData(coorData.lat, coorData.lon);
       setWeatherData(weatherData);
+      setCurrent(weatherData.current);
       let airPollution = await getAirPollution(coorData.lat, coorData.lon);
       setAirPollution(airPollution?.list[0]?.main?.aqi);
       setLoading(false)
@@ -50,7 +53,11 @@ function App() {
       setLoading(false);
     }
   };
-
+  const onDayClick = (obj) => {
+    let current = Object.assign({}, obj);
+    current.temp = obj?.temp.max;
+    setCurrent(current);
+  }
   return (
     <div className="App">
       <Input.Search
@@ -70,7 +77,7 @@ function App() {
           height={100}
           width={100}
         />
-        : ( !loading && !locData ? <NotFound/> : <Result weatherData={weatherData} locData={locData} airPollution={airPollution}/>)}
+        : ( !loading && !locData ? <NotFound/> : <Result weatherData={weatherData} locData={locData} airPollution={airPollution} current={current} onDayClick={onDayClick}/>)}
       </div>
     </div>
   );

@@ -28,8 +28,12 @@
   min-height: 150px;
   border: 1px solid #ccc;
   text-align: center;
+  cursor: pointer;
+  
 }
-
+.week-data-day:hover {
+  background: #F7F7F7;
+}
 .city-name {
   font-size: 20px;
   font-weight: bold;
