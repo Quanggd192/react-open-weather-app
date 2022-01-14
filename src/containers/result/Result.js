@@ -24,7 +24,7 @@ export default function Result(props) {
   return (
     <div>
       <div className="result-header">
-        <div className="city-name">{`${props.locData?.local_names?.en}, ${props.locData?.country}`}</div>
+        <div className="city-name">{`${props.locData?.name}, ${props.locData?.country}`}</div>
         <div className="time">{daysOfWeek[currentDate.getDay()]} {currentDate.toLocaleTimeString()} • {props.current.weather[0].description}</div>
         <br />
         <div className="day-data">
